@@ -9,15 +9,17 @@ public class Esercizio1 {
         this.max=max;
         this.min=min;
     }
-    public void intervallo(){
-        //  200-100+1+100
-        double risultato=Math.random()*(max-min+1)+min;
-        System.out.println(risultato);
+    public void esercizio(){
+        Random r=new Random();
+        double numero=r.nextDouble(max);
+        System.out.println(numero);
     }
 
-    public void intervallo2(){
+    public void plus1(){
         Random r=new Random();
-        int rand_int=r.nextInt(max)+1; // Genera un numero casuale tra 1 a 100 esclusi
-        System.out.println(rand_int);
+        double numero=r.nextDouble(99)+1;
+        System.out.println(numero);
     }
+
+    // TODO: plus2?
 }

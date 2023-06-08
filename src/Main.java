@@ -1,7 +1,8 @@
-import Parte2.*;
+import Parte1.*;
 import Parte3.BattagliaNavale;
 import Parte3.TryCatch;
 
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -11,11 +12,11 @@ public class Main {
     public static void main(String[] args) {
 
         // --------------PARTE 1----------------
-        /*Esercizio1 es=new Esercizio1(100,0);
-        es.intervallo();
-        es.intervallo2();
-        // Esercizio2 es2=new Esercizio2();
-        // es2.intervallo();
+        Esercizio1 es=new Esercizio1(100,0);
+        es.esercizio();
+        es.plus1();
+        Esercizio2 es2=new Esercizio2();
+        es2.intervallo();
         Esercizio3 es3=new Esercizio3("ciao come stai");
         es3.toUppercase();
         es3.toLowercase();
@@ -30,7 +31,7 @@ public class Main {
         // stampa del minimo
         System.out.println("Minimo: " + maxMinOrdinati[0]);
         // stampa del massimo
-        System.out.println("Massimo: " + maxMinOrdinati[1]);*/
+        System.out.println("Massimo: " + maxMinOrdinati[1]);
 
         /*// --------------ESERCIZI ASSEGNATI----------------
         // array di numeri interi
@@ -120,8 +121,8 @@ public class Main {
         // --------- Parte 3 ------------
         /*TryCatch tryCatch = new TryCatch();
         tryCatch.start();*/
-        BattagliaNavale battagliaNavale = new BattagliaNavale();
-        battagliaNavale.startGame();
+        /*BattagliaNavale battagliaNavale = new BattagliaNavale();
+        battagliaNavale.startGame();*/
 
             }
         }
