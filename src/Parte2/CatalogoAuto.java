@@ -8,7 +8,7 @@ public class CatalogoAuto {
 
     private List<Auto> autos=new ArrayList<>();
 
-    Scanner myObj = new Scanner(System.in);
+    private Scanner myObj = new Scanner(System.in);
     public CatalogoAuto() {
     }
 
@@ -56,7 +56,8 @@ public class CatalogoAuto {
         }
     }
 
-    public void start(){
+    public void start() {
+
         while (true) {
             System.out.println("Vuoi visualizzare il catalogo? (s/n)");
             String risposta1 = myObj.nextLine();
@@ -68,8 +69,17 @@ public class CatalogoAuto {
             if (rispostaInserimento.equals("s")) {
                 Auto newAuto = new Auto();
                 // creazione auto
-                System.out.println("Inserisci velocità massima");
-                int risposta = Integer.parseInt(myObj.nextLine());
+                Integer risposta = null;
+                Boolean isInt = false;
+                while (!isInt) {
+                    System.out.println("Inserisci velocità massima");
+                    try {
+                        risposta = Integer.parseInt(myObj.nextLine());
+                        isInt=true;
+                    } catch (NumberFormatException ex) {
+                        System.out.println("Inserire velocità correta");
+                    }
+                }
                 newAuto.setVelocitaMassima(risposta);
                 System.out.println("Inserisci numero porte");
                 risposta = Integer.parseInt(myObj.nextLine());
@@ -91,8 +101,7 @@ public class CatalogoAuto {
                 System.out.println("Inserisci id auto da rimuovere");
                 int id = Integer.parseInt(myObj.nextLine());
                 Auto auto = this.searchAuto(id);
-                if (auto != null)
-                {
+                if (auto != null) {
                     this.removeAuto(auto);
                 } else {
                     System.out.println("Auto non trovata");
@@ -105,8 +114,7 @@ public class CatalogoAuto {
                 System.out.println("Inserisci id auto da ricercare");
                 int id = Integer.parseInt(myObj.nextLine());
                 Auto auto = this.searchAuto(id);
-                if (auto != null)
-                {
+                if (auto != null) {
                     System.out.println(auto.toString());
                 } else {
                     System.out.println("Auto non trovata");

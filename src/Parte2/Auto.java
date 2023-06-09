@@ -3,11 +3,8 @@ package Parte2;
 public class Auto {
     private int id;
     private int numeroPorte;
-
-    private  String colore;
-
+    private String colore;
     private String annoProduzione;
-
     private int velocitaMassima;
 
     public Auto() {
@@ -51,7 +48,7 @@ public class Auto {
         return velocitaMassima;
     }
 
-    public void setVelocitaMassima(int velocitaMassima) {
+    public void setVelocitaMassima(Integer velocitaMassima) {
         this.velocitaMassima = velocitaMassima;
     }
 

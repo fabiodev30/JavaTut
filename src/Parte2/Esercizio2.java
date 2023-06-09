@@ -25,6 +25,8 @@ public class Esercizio2 {
         System.out.println(set1);
     }
 
+    // TODO:
+
     // estrai numero e rimuovilo dal set fino a quando il set non è vuoto
     public void estraiNumero(){
         // ciclo while per estrarre i numeri

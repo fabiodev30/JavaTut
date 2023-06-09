@@ -10,7 +10,7 @@ public class Esercizio4 {
     public Esercizio4() {
     }
 
-    /* ----PRIMA VERSIONE CON CARTE 52----
+   /* // ----PRIMA VERSIONE CON CARTE 52----
     // metodo per creare il mazzo di carte
     public void creaMazzo() {
         // array di semi
@@ -125,9 +125,10 @@ public class Esercizio4 {
         }
 
     }
+}*/
 
-        */
     // ---------SECONDA VERSIONE con carte numero casuale min 4 max 20----------------
+    // TODO: numero di carte in input
     public void creaMazzo(){
         // creo un array di stringhe
         mazzo=new ArrayList<>();
@@ -161,52 +162,54 @@ public class Esercizio4 {
 
 
     public void suddividiMazzo() {
-        List<String> carteDiCuoriMaggiori2=new ArrayList<>();
-        List<String> carteDiCuoriMinoriUguali2=new ArrayList<>();
-        List<String> carteDiQuadri=new ArrayList<>();
-        List<String> carteDiPiccheMinoriUguali2EFioriMaggiori4=new ArrayList<>();
-        List<String> carteDiFioriCompresiTra2E4=new ArrayList<>();
-        List<String> altreCarte=new ArrayList<>();
+        List<String> carteDiCuoriMaggiori2 = new ArrayList<>();
+        List<String> carteDiCuoriMinoriUguali2 = new ArrayList<>();
+        List<String> carteDiQuadri = new ArrayList<>();
+        List<String> carteDiPiccheMinoriUguali2EFioriMaggiori4 = new ArrayList<>();
+        List<String> carteDiFioriCompresiTra2E4 = new ArrayList<>();
+        List<String> altreCarte = new ArrayList<>();
 
         // ciclo per il mazzo
         for (int i = 0; i < mazzo.size(); i++) {
             // controllo se la carta è di cuori e se è maggiore di 2
-            if(mazzo.get(i).contains("cuori") && Integer.parseInt(mazzo.get(i).substring(0,1))>2){
+            if (mazzo.get(i).contains("cuori") && Integer.parseInt(mazzo.get(i).substring(0, 1)) > 2) {
                 // aggiungo la carta all'array
                 carteDiCuoriMaggiori2.add(mazzo.get(i));
             }
             // controllo se la carta è di cuori e se è minore o uguale a 2
-            else if(mazzo.get(i).contains("cuori") && Integer.parseInt(mazzo.get(i).substring(0,1))<=2){
+            else if (mazzo.get(i).contains("cuori") && Integer.parseInt(mazzo.get(i).substring(0, 1)) <= 2) {
                 // aggiungo la carta all'array
                 carteDiCuoriMinoriUguali2.add(mazzo.get(i));
             }
             // controllo se la carta è di quadri
-            else if(mazzo.get(i).contains("quadri")){
+            else if (mazzo.get(i).contains("quadri")) {
                 // aggiungo la carta all'array
                 carteDiQuadri.add(mazzo.get(i));
             }
             // controllo se la carta è di picche e se è minore o uguale a 2 o se è di fiori e se è maggiore di 4
-            else if((mazzo.get(i).contains("picche") && Integer.parseInt(mazzo.get(i).substring(0,1))<=2) || (mazzo.get(i).contains("fiori") && Integer.parseInt(mazzo.get(i).substring(0,1))>4)){
+            else if ((mazzo.get(i).contains("picche") && Integer.parseInt(mazzo.get(i).substring(0, 1)) <= 2) || (mazzo.get(i).contains("fiori") && Integer.parseInt(mazzo.get(i).substring(0, 1)) > 4)) {
                 // aggiungo la carta all'array
                 carteDiPiccheMinoriUguali2EFioriMaggiori4.add(mazzo.get(i));
             }
             // controllo se la carta è di fiori e se è compresa tra 2 e 4
-            else if(mazzo.get(i).contains("fiori") && Integer.parseInt(mazzo.get(i).substring(0,1))>=2 && Integer.parseInt(mazzo.get(i).substring(0,1))<=4){
+            else if (mazzo.get(i).contains("fiori") && Integer.parseInt(mazzo.get(i).substring(0, 1)) >= 2 && Integer.parseInt(mazzo.get(i).substring(0, 1)) <= 4) {
                 // aggiungo la carta all'array
                 carteDiFioriCompresiTra2E4.add(mazzo.get(i));
             }
             // altrimenti
-            else{
+            else {
                 // aggiungo la carta all'array
                 altreCarte.add(mazzo.get(i));
             }
         }
         // stampo le liste
-        System.out.println("Carte di cuori maggiori di 2: "+carteDiCuoriMaggiori2);
-        System.out.println("Carte di cuori minori o uguali a 2: "+carteDiCuoriMinoriUguali2);
-        System.out.println("Carte di quadri: "+carteDiQuadri);
-        System.out.println("Carte di picche minori o uguali a 2 o carte di fiori maggiori di 4: "+carteDiPiccheMinoriUguali2EFioriMaggiori4);
-        System.out.println("Carte di fiori comprese tra 2 e 4: "+carteDiFioriCompresiTra2E4);
-        System.out.println("Altre carte: "+altreCarte);
+        System.out.println("Carte di cuori maggiori di 2: " + carteDiCuoriMaggiori2);
+        System.out.println("Carte di cuori minori o uguali a 2: " + carteDiCuoriMinoriUguali2);
+        System.out.println("Carte di quadri: " + carteDiQuadri);
+        System.out.println("Carte di picche minori o uguali a 2 o carte di fiori maggiori di 4: " + carteDiPiccheMinoriUguali2EFioriMaggiori4);
+        System.out.println("Carte di fiori comprese tra 2 e 4: " + carteDiFioriCompresiTra2E4);
+        System.out.println("Altre carte: " + altreCarte);
+
+
     }
 }

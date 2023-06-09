@@ -1,36 +1,55 @@
 package Parte1;
 
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
 
 public class Esercizio2 {
 
     // genera array vuoto di numeri
-    ArrayList<Integer> numbers = new ArrayList<>();
+    private Map<Integer, Boolean> mappa;
+    private Random r;
+    private Integer max;
+    private Integer min;
+    private Integer count;
+
+    public Esercizio2() {
+        this.r = new Random();
+        this.mappa=new HashMap<>();
+        this.max = 90;
+        this.min = 1;
+        this.count = 0;
+    }
 
 
-    public void intervallo(){
-        for (int i = 1; i <=90 ; i++) {
-            numbers.add(i);
+    public void intervallo() {
+        for (int i = 1; i <= 90 ; i++) {
+            mappa.put(i,false);
         }
-        Random r=new Random();
         // finchè l'array non è vuoto
-        while (!numbers.isEmpty()) {
+        while (!areAllExtracted()) {
             // aspetta un secondo
             try {
-                Thread.sleep(100);
+                // estrai nuovo numero casuale
+                int randInt=r.nextInt(max-min+1)+min;
+                if (!mappa.get(randInt)) {
+                    mappa.put(randInt,true);
+                    count++;
+                    System.out.println("Estratto il numero "+randInt);
+                    Thread.sleep(100);
+                }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            // prendere valore max e min dei numbers, prima prendevo la size dell'array ma non è corretto
-            int max=numbers.stream().max(Integer::compare).get();
-            int min=numbers.stream().min(Integer::compare).get();
-            // estrai nuovo numero casuale
-            int rand_int=r.nextInt(max-min+1)+min;
-            // rimuovi numero estratto dall'array
-            int numeroEstratto=numbers.remove(rand_int);
-            System.out.println("Estratto il numero"+numeroEstratto);
         }
+        System.out.println("Sono stati estratti " + count + " numeri");
+    }
+
+    private Boolean areAllExtracted() {
+        for (Map.Entry<Integer, Boolean> coppia : mappa.entrySet()) {
+            if (!coppia.getValue()) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }

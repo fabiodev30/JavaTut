@@ -1,24 +1,24 @@
 package Parte1;
 
 public class Esercizio3 {
-    public String stringa;
+    private String stringa;
     public Esercizio3(String stringa){
         this.stringa=stringa;
     }
 
     public void toUppercase(){
-        System.out.println(stringa.toUpperCase());
+        System.out.println(this.stringa.toUpperCase());
     }
 
     public  void  toLowercase(){
-        System.out.println(stringa.toLowerCase());
+        System.out.println(this.stringa.toLowerCase());
     }
 
     // prime lettere maiuscole
     public void capitalize(){
         // splitto la stringa in un array di stringhe usando come separatore lo spazio
         String[] words=stringa.split(" ");
-        String capitalized="";
+        StringBuilder capitalized= new StringBuilder();
         for (int i = 0; i < words.length; i++) {
             String word=words[i];
             // prendo la prima lettera della parola
@@ -26,7 +26,7 @@ public class Esercizio3 {
             // prendo il resto della parola
             String rest=word.substring(1);
             // concateno la prima lettera maiuscola con il resto della parola
-            capitalized+=firstLetter.toUpperCase()+rest+" ";
+            capitalized.append(firstLetter.toUpperCase()).append(rest).append(" ");
         }
         System.out.println(capitalized);
     }
