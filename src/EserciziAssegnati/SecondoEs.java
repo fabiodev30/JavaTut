@@ -38,25 +38,30 @@ public class SecondoEs {
        System.out.println("Elementi intersezione:"+intersezione);
     }
 
-    public void Intersezione2(){
-        // creo un set di inter relativo all'array1
-        Set<Integer> set1=new HashSet<>();
-        // creo un set di inter relativo all'array2
-        Set<Integer> set2=new HashSet<>();
-        // scorro l'array1
+    // metodo che fa intersezione fra due array di interi
+    // soluzione lineare
+    public  void Intersezione1(){
+        // creo una mappa di interi
+        Set<Integer> intersezione = new HashSet<Integer>();
+        // creao una array di interi con dimensione dinamica
+        ArrayList<Integer> intersezione1 = new ArrayList<Integer>();
+        // aggiungo tutti gli elementi dell'array1 alla mappa
         for (int i = 0; i < array.length; i++) {
-            // aggiungo l'elemento all'array1
-            set1.add(array[i]);
+            intersezione.add(array[i]);
         }
         // scorro l'array2
         for (int i = 0; i < array1.length; i++) {
-            // aggiungo l'elemento all'array2
-            set2.add(array1[i]);
+            // se l'elemento dell'array2 è presente nella mappa
+            if (intersezione.contains(array1[i])) {
+                // aggiungo l'elemento all'array intersezione solo se non è già presente
+                if (!intersezione1.contains(array1[i])) {
+                    intersezione1.add(array1[i]);
+                }
+            }
         }
-        // scorro il set1
-        set1.retainAll(set2);
-        System.out.println("Elementi intersezione:"+set1);
 
+        // ritorno l'array intersezione
+        System.out.println("Elementi intersezione:"+intersezione);
     }
 
 }
